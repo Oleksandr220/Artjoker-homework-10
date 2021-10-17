@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank users</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+      integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <form action="">
+      <input
+        type="radio"
+        id="usersChoise1"
+        name="bankUsers"
+        value="debit-account"
+        checked
+      />
+      <label for="usersChoise1">Задолженность всех клиентов банка</label>
+      <input
+        type="radio"
+        id="usersChoise2"
+        name="bankUsers"
+        value="debit-account"
+      />
+      <label for="usersChoise2">Задолженность активных клиентов</label>
+      <input
+        type="radio"
+        id="usersChoise3"
+        name="bankUsers"
+        value="credit-account"
+      />
+      <label for="usersChoise3">Задолженность неактивных клиентов</label>
+      <button type="submit">Показать счета клиентов</button>
+    </form>
+    <form action="">
+      <label>ФИО<input type="text" /></label>
+      <label>Тип валюты<input type="text" /></label>
+      <label>Личный счёт<input type="text" /></label>
+      <label>Кредитный счёт<input type="text" /></label>
+      <button type="submit">Добавить клиента</button>
+    </form>
+    <div class="users"></div>
+
+    <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
+    <script src="./index.js"></script>
+  </body>
+</html>
