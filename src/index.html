@@ -12,12 +12,12 @@
     />
   </head>
   <body>
-    <form action="">
+    <form action="" class="form__accounts">
       <input
         type="radio"
         id="usersChoise1"
         name="bankUsers"
-        value="debit-account"
+        value="allAccount"
         checked
       />
       <label for="usersChoise1">Задолженность всех клиентов банка</label>
@@ -25,24 +25,17 @@
         type="radio"
         id="usersChoise2"
         name="bankUsers"
-        value="debit-account"
+        value="activeAccount"
       />
       <label for="usersChoise2">Задолженность активных клиентов</label>
       <input
         type="radio"
         id="usersChoise3"
         name="bankUsers"
-        value="credit-account"
+        value="disabledAccount"
       />
       <label for="usersChoise3">Задолженность неактивных клиентов</label>
       <button type="submit">Показать счета клиентов</button>
-    </form>
-    <form action="">
-      <label>ФИО<input type="text" /></label>
-      <label>Тип валюты<input type="text" /></label>
-      <label>Личный счёт<input type="text" /></label>
-      <label>Кредитный счёт<input type="text" /></label>
-      <button type="submit">Добавить клиента</button>
     </form>
     <div class="users"></div>
 
