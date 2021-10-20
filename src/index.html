@@ -37,7 +37,15 @@
       <label for="usersChoise3">Задолженность неактивных клиентов</label>
       <button type="submit">Показать счета клиентов</button>
     </form>
-    <div class="users"></div>
+    <div class="users">
+      <ul class="users__list"></ul>
+      <div class="count">
+        <div class="count__list">
+          <div class="count__list--item" id="total-count"></div>
+          <div class="count__list--item" id="credit-count"></div>
+        </div>
+      </div>
+    </div>
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>

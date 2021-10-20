@@ -3,7 +3,7 @@ export const users = [
     name: "Иванов Иван Иванович",
     id: 1,
     isActive: true,
-    currency: "UAH",
+    currency: "eurrub",
     regDate: "16/12/2016",
     finalDate: "15/12/2021",
     account: {
@@ -21,7 +21,7 @@ export const users = [
     name: "Сидоров Алексей Алексеевич",
     id: 2,
     isActive: true,
-    currency: "UAH",
+    currency: "usdrub",
     regDate: "26/04/2019",
     finalDate: "25/04/2024",
     account: {
@@ -39,7 +39,7 @@ export const users = [
     name: "Петров Петр Петрович",
     id: 3,
     isActive: true,
-    currency: "UAH",
+    currency: "eurusd",
     regDate: "15/08/2018",
     finalDate: "14/08/2023",
     account: {
@@ -57,7 +57,7 @@ export const users = [
     name: "Добрынин Никита Никитыч",
     id: 4,
     isActive: false,
-    currency: "UAH",
+    currency: "usdrub",
     regDate: "21/06/2014",
     finalDate: "20/06/2019",
     account: {
@@ -75,7 +75,7 @@ export const users = [
     name: "Попов Алексей Иванович",
     id: 5,
     isActive: false,
-    currency: "UAH",
+    currency: "eurrub",
     regDate: "21/09/2010",
     finalDate: "20/09/2015",
     account: {

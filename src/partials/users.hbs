@@ -1,6 +1,4 @@
 {{#each this}}
-<div class="conteiner">
-    <ul class="users__list">
         <li class="users__list--item">
             <span class="users__list--category">{{name}}</span>
             <span class="users__list--category">Валюта: {{currency}}</span>
@@ -11,6 +9,5 @@
             <span class="users__list--category">Кредитные средства: {{account.creditAccount.creditFounds.founds}} {{currency}}</span>
             <span class="users__list--category">Кредитный лимит: {{account.creditAccount.creditFounds.limit}} {{currency}}</span>
         </li>
-    </ul>
-</div>
+        <br>
 {{/each}}
