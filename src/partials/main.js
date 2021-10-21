@@ -2,6 +2,7 @@
 
 import { users } from "./users";
 import usersMurkup from "./users.hbs";
+import fetchApi from "../fetchCurencyApi";
 
 const counter = document.querySelector(".count");
 const userList = document.querySelector(".users__list");
@@ -61,57 +62,24 @@ function addUsersToMarkup(users) {
 
 // Запрос по курсу доллара
 
-// class FetchCurrency {
-//   url;
-//   constructor(url) {
-//     this.url = url;
-//   }
-
-//   get CurrencyApi() {
-//     return fetch(this.url, {
-//       method: "GET",
-//       headers: {
-//         "Content-type": "application/json; charset=UTF-8",
-//         "X-Authorization-Token": "20db3d99-1606-11ec-a1b1-8a04c6a70bd3",
-//       },
-//     })
-//       .then((response) => response.json())
-//       .then((res) => res.data)
-//       .catch((err) => console.log(err.message));
-//   }
-// }
-
-function fetchCurencyApi(url) {
-  const fetchUrl = fetch(url, {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-      "X-Authorization-Token": "20db3d99-1606-11ec-a1b1-8a04c6a70bd3",
-    },
-  })
-    .then((response) => response.json())
-    .catch((err) => console.log(err.message));
-  return fetchUrl;
-}
 // Подсчет общего количества денег в банке
-function totalBankFounds(clients) {
+async function totalBankFounds(clients) {
   // curTotal = 0;
   let totalFounds = 0;
   let amountOfDebt = 0;
+
+  const fetches = await fetchApi("usdrub")
+    .then((response) => response.json())
+    .then((res) => res.data)
+    .then((res) => console.log(res.usdrub))
+    .catch((err) => console.log(err.message));
+
   for (let client of clients) {
-    console.log(client);
-    let dollarRate = fetchCurencyApi(
-      `https://evgeniychvertkov.com/api/exchange/?currency[]=${client.currency}`
-    )
-      .then((res) => res.data)
-      .then((res) => res);
-    console.log(dollarRate);
     totalFounds +=
       client.account.debitAccount +
       client.account.creditAccount.personalFound +
       (client.account.creditAccount.creditFounds.limit -
         client.account.creditAccount.creditFounds.founds);
-    totalCount.innerHTML = `Общая сумма денег в банке: ${totalFounds}`;
   }
 
   const amountOfDebtArr = clients.map((client) => {
@@ -120,6 +88,7 @@ function totalBankFounds(clients) {
       client.account.creditAccount.creditFounds.founds);
   });
 
+  totalCount.innerHTML = `Общая сумма денег в банке: ${totalFounds}`;
   creditCount.innerHTML = `Общая сумма долга перед банком: ${amountOfDebt}`;
 
   console.log(totalFounds);
