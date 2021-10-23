@@ -6,12 +6,13 @@
   "homepage": "https://Oleksandr220.github.io/artjoker-homework-10",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /artjoker-homework-10/"
+    "build": "parcel build src/*.html --public-url /artjoker-homework-10/",
+    "deploy": "gh-pages -d dist",
+    "predeploy": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Oleksandr220/artjoker-homework-10",
-    "deploy": "gh-pages -d dist"
+    "url": "git+https://github.com/Oleksandr220/artjoker-homework-10"
   },
   "keywords": [],
   "author": "Alexander Maslov <oleksandrmaslov663@gmail.com>",
