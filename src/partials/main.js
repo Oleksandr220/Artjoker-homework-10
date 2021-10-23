@@ -60,8 +60,6 @@ function addUsersToMarkup(users) {
   });
 }
 
-// Запрос по курсу доллара
-
 // Подсчет общего количества денег в банке
 async function totalBankFounds(clients) {
   let totalFounds = 0;
