@@ -1,14 +1,15 @@
-async function fetchCurencyApi(curency) {
-  let dollarRate = `https://evgeniychvertkov.com/api/exchange/?currency[]=${curency}`;
-  const fetchUrl = await fetch(dollarRate, {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-      "X-Authorization-Token": "20db3d99-1606-11ec-a1b1-8a04c6a70bd3",
-    },
-  });
+async function fetchCurencyApi(currency) {
+  const options = { method: "GET", headers: { Accept: "application/json" } };
 
-  return fetchUrl;
+  const currencyDollar = await fetch(
+    `https://api.fastforex.io/fetch-multi?from=USD&to=${currency}&api_key=adfa616511-bc6586b63c-r1fjlv`,
+    options
+  );
+  const resultJson = await currencyDollar.json();
+  const result = await resultJson.results;
+  const resultCurrency = await result[currency];
+
+  return resultCurrency;
 }
 
 export default fetchCurencyApi;

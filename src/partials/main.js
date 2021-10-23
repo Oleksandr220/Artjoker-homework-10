@@ -64,33 +64,28 @@ function addUsersToMarkup(users) {
 
 // Подсчет общего количества денег в банке
 async function totalBankFounds(clients) {
-  // curTotal = 0;
   let totalFounds = 0;
   let amountOfDebt = 0;
 
-  const fetches = await fetchApi("usdrub")
-    .then((response) => response.json())
-    .then((res) => res.data)
-    .then((res) => console.log(res.usdrub))
-    .catch((err) => console.log(err.message));
-
   for (let client of clients) {
-    totalFounds +=
+    const fetches = await fetchApi(client.currency);
+    totalFounds += Math.floor(
       client.account.debitAccount +
-      client.account.creditAccount.personalFound +
+        client.account.creditAccount.personalFound +
+        (client.account.creditAccount.creditFounds.limit -
+          client.account.creditAccount.creditFounds.founds) /
+          fetches
+    );
+    amountOfDebt += Math.floor(
       (client.account.creditAccount.creditFounds.limit -
-        client.account.creditAccount.creditFounds.founds);
+        client.account.creditAccount.creditFounds.founds) /
+        fetches
+    );
+    // console.log("fetches", fetches);
+    // console.log("totalFounds:", totalFounds);
+    // console.log("amountOfDebt:", amountOfDebt);
   }
-
-  const amountOfDebtArr = clients.map((client) => {
-    return (amountOfDebt +=
-      client.account.creditAccount.creditFounds.limit -
-      client.account.creditAccount.creditFounds.founds);
-  });
 
   totalCount.innerHTML = `Общая сумма денег в банке: ${totalFounds}`;
   creditCount.innerHTML = `Общая сумма долга перед банком: ${amountOfDebt}`;
-
-  console.log(totalFounds);
-  console.log(amountOfDebt);
 }
